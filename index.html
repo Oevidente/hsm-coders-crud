@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,200;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/records.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <script src="main.js" defer></script>
+    <title>.:GAMA - CRUD:.</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="header-title">LISTA DE CURSOS</h1>
+    </header>
+    <main>
+        <button type="button" class="button blue mobile" id="cadastrarCurso">Cadastrar Curso</button>
+        <table class="records">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Imagem</th>
+                    <th>Professor</th>
+                    <th>Aulas</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1000</td>
+                    <td>Economia Doméstica</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td><img src="./img/aim-32x32-1215932.png" alt=""></td>
+                    <td>Isidro Masseto</td>
+                    <td><a href="https://www.gama.academy/">LINK AULAS</a></td>
+                    <td>
+                        <button type="button" class="button green">editar</button>
+                        <button type="button" class="button red">excluir</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1001</td>
+                    <td>CDB x Poupança</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td> <img src="./img/bank-32x32-1408654.png" alt=""> </td>
+                    <td>Kai Pimenta</td>
+                    <td><a href="https://www.gama.academy/">LINK AULAS</a></td>
+                    <td>
+                        <button type="button" class="button green">editar</button>
+                        <button type="button" class="button red">excluir</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1002</td>
+                    <td>Bolsa de Valores</td>
+                    <td>Lorem ipsum dolor sit amet.</td>
+                    <td><img src="./img/money-32x32-1214076.png" alt=""></td>
+                    <td>Simara Conceição</td>
+                    <td><a href="https://www.gama.academy/">LINK AULAS</a></td>
+                    <td>
+                        <button type="button" class="button green">editar</button>
+                        <button type="button" class="button red">excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2>Novo Curso</h2>
+                    <span class="modal-close" id="modalClose">&#10006;</span>
+                </header>
+                <form class="modal-form">
+                    <input type="number" class="modal-field" placeholder="ID do Curso">
+                    <input type="text" class="modal-field" placeholder="Título">
+                    <input type="text" class="modal-field" placeholder="Descrição">
+                    <input type="url" class="modal-field" placeholder="Link Imagem">
+                    <input type="text" class="modal-field" placeholder="Professor">
+                    <input type="url" class="modal-field" placeholder="Link Aulas">
+
+                </form>
+                <footer class="modal-footer">
+                    <button class="button green">Salvar</button>
+                    <button class="button blue" id="cancelar"> Cancelar</button>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <footer>
+        Copyright &copy; Programação Sem Pantim
+    </footer>
+</body>
+
+</html>
