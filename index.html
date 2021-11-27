@@ -34,42 +34,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1000</td>
-                    <td>Economia Doméstica</td>
-                    <td>Lorem ipsum dolor sit amet.</td>
-                    <td><img src="./img/aim-32x32-1215932.png" alt=""></td>
-                    <td>Isidro Masseto</td>
-                    <td><a href="https://www.gama.academy/">LINK AULAS</a></td>
-                    <td>
-                        <button type="button" class="button green">editar</button>
-                        <button type="button" class="button red">excluir</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1001</td>
-                    <td>CDB x Poupança</td>
-                    <td>Lorem ipsum dolor sit amet.</td>
-                    <td> <img src="./img/bank-32x32-1408654.png" alt=""> </td>
-                    <td>Kai Pimenta</td>
-                    <td><a href="https://www.gama.academy/">LINK AULAS</a></td>
-                    <td>
-                        <button type="button" class="button green">editar</button>
-                        <button type="button" class="button red">excluir</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1002</td>
-                    <td>Bolsa de Valores</td>
-                    <td>Lorem ipsum dolor sit amet.</td>
-                    <td><img src="./img/money-32x32-1214076.png" alt=""></td>
-                    <td>Simara Conceição</td>
-                    <td><a href="https://www.gama.academy/">LINK AULAS</a></td>
-                    <td>
-                        <button type="button" class="button green">editar</button>
-                        <button type="button" class="button red">excluir</button>
-                    </td>
-                </tr>
+               
             </tbody>
         </table>
         <div class="modal" id="modal">
@@ -78,17 +43,17 @@
                     <h2>Novo Curso</h2>
                     <span class="modal-close" id="modalClose">&#10006;</span>
                 </header>
-                <form class="modal-form">
-                    <input type="number" class="modal-field" placeholder="ID do Curso">
-                    <input type="text" class="modal-field" placeholder="Título">
-                    <input type="text" class="modal-field" placeholder="Descrição">
-                    <input type="url" class="modal-field" placeholder="Link Imagem">
-                    <input type="text" class="modal-field" placeholder="Professor">
-                    <input type="url" class="modal-field" placeholder="Link Aulas">
+                <form id="form"class="modal-form">
+                    <input type="number" id="id" class="modal-field" placeholder="ID do Curso" required>
+                    <input type="text" id="titulo" class="modal-field" placeholder="Título" required>
+                    <input type="text" id="descricao" class="modal-field" placeholder="Descrição" required>
+                    <input type="url" id="imagem" class="modal-field" placeholder="Link Imagem" required>
+                    <input type="text" id="professor" class="modal-field" placeholder="Professor" required>
+                    <input type="url" id="aulas" class="modal-field" placeholder="Link Aulas" required>
 
                 </form>
                 <footer class="modal-footer">
-                    <button class="button green">Salvar</button>
+                    <button class="button green" id="salvar">Salvar</button>
                     <button class="button blue" id="cancelar"> Cancelar</button>
                 </footer>
             </div>
