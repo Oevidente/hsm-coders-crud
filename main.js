@@ -49,7 +49,7 @@ const isValidFields = () => {
 //Interação com o layout
 const clearFields = () => {
     const fields = document.querySelectorAll('.modal-field');
-    fields.forEach(field => field.value = '')
+    fields.forEach(field => field.value = '');
 }
 
 const saveCurso = () => {
@@ -62,13 +62,20 @@ const saveCurso = () => {
             professor: document.getElementById('professor').value,
             aulas: document.getElementById('aulas').value
         }
-        criarCurso(curso);
-        updateTable();
-        closeModal()
+        const index = document.getElementById('id').dataset.index;
+        if (index === "new") {
+            criarCurso(curso);
+            updateTable();
+            closeModal();
+        } else {
+            atualizarCurso(index, curso);
+            updateTable();
+            closeModal();
+        }
     }
 }
 
-const createRow = (curso) => {
+const createRow = (curso, index) => {
     const newRow = document.createElement('tr');
     newRow.innerHTML = `
     <td>${curso.id}</td>
@@ -78,8 +85,8 @@ const createRow = (curso) => {
     <td>${curso.professor}</td>
     <td><a href="${curso.aulas}" target="_blank">LINK AULAS</a></td>
     <td>
-        <button type="button" class="button green">editar</button>
-        <button type="button" class="button red">excluir</button>
+        <button type="button" class="button green" id="edit-${index}">editar</button>
+        <button type="button" class="button red" id="delete-${index}">excluir</button>
     </td>
     `
     document.querySelector('#tableCurso>tbody').appendChild(newRow);
@@ -93,21 +100,59 @@ const clearTable = () => {
 const updateTable = () => {
     const dbCurso = listaCursos();
     clearTable();
-    dbCurso.forEach(createRow)
+    dbCurso.forEach(createRow);
 }
 
+const fillFields = (curso) => {
+    document.getElementById('id').value = curso.id;
+    document.getElementById('titulo').value = curso.titulo;
+    document.getElementById('descricao').value = curso.descricao;
+    document.getElementById('imagem').value = curso.imagem;
+    document.getElementById('professor').value = curso.professor;
+    document.getElementById('aulas').value = curso.aulas;
+    document.getElementById('id').dataset.index = curso.index;
+}
+
+const editCurso = (index) => {
+    const curso = listaCursos()[index];
+    curso.index = index;
+    fillFields(curso)
+    openModal()
+}
+
+
+const editDelete = (event) => {
+    if( event.target.type === 'button' ) {
+        const [action, index] = event.target.id.split('-')
+
+        if (action === 'edit') {
+            console.log("editando cliente")
+            editCurso(index);
+        } else {
+            const curso = listaCursos()[index];
+            const response = confirm(`Deseja realmente excluir o curso ${curso.titulo}`);
+            if (response) {
+                deletarCurso(index);
+                updateTable();
+            }
+        }
+    }
+}
 
 updateTable();
 
 // Events
 document.getElementById('cadastrarCurso')
-    .addEventListener('click', openModal)
+    .addEventListener('click', openModal);
 
 document.getElementById('modalClose')
-    .addEventListener('click', closeModal)
+    .addEventListener('click', closeModal);
 
 document.getElementById('cancelar')
-    .addEventListener('click', closeModal)
+    .addEventListener('click', closeModal);
 
 document.getElementById('salvar')
-    .addEventListener("click", saveCurso)
+    .addEventListener("click", saveCurso);
+
+document.querySelector('#tableCurso>tbody')
+    .addEventListener("click", editDelete);
