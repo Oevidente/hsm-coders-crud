@@ -10,14 +10,18 @@
 }
 
 .button.blue {
+    border-radius: 25px;
     background-color: #1FB6FF;
+    box-shadow: 0 1px 2px var(--shadow-color);
 }
 
 button.green {
+    border-radius: 25px;
     background-color: #13CE66;
 }
 
 button.red {
+    border-radius: 25px;
     background-color: #FF4949;
 }
 
