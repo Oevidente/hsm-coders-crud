@@ -6,21 +6,36 @@
 
 .records th {
     height: 50px;
+    color: white;
     background-color: var(--primary-color);
     padding-left: 20px;
     font-size: 1.2rem;
+    text-align: center;
+    padding: 0;
 }
 
 .records td {
     height: 50px;
+    text-align: center;
     padding-left: 20px;
+    padding: 0;
 }
 
-.records th:last-child,
+.records th:first-child {
+    border-radius: 25px 0 0 0;
+}
+.records th:last-child {
+    padding: 0;
+    min-width: 140px;
+    text-align: center;
+    border-radius: 0 25px 0 0;
+}
+
 .records td:last-child {
     padding: 0;
     min-width: 140px;
     text-align: center;
+
 }
 
 .records tr:hover {
